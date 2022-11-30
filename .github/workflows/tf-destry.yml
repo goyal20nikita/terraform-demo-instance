@@ -46,7 +46,12 @@ jobs:
       env:
         TF_VAR_STATE_FILE: "$ENV-${{ github.event.repository.name }}.tfstate"  
 
-    - name: Terraform Destroy
+    - name: Terraform Apply
       #if: github.ref == 'refs/heads/master' && github.event_name == 'push'      
       #run: terraform destroy -auto-approve -var-file="$ENV/terraform.tfvars" -input=false -lock=false
       run: terraform apply -auto-approve
+
+    - name: Terraform Destroy
+      #if: github.ref == 'refs/heads/master' && github.event_name == 'push'      
+      #run: terraform destroy -auto-approve -var-file="$ENV/terraform.tfvars" -input=false -lock=false
+      run: terraform destroy -auto-approve
