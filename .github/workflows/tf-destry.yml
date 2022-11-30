@@ -37,7 +37,8 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: us-east-1    
+        aws-region: us-east-1
+        aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}    
     
     - name: Terraform Init
       run: terraform init -backend-config="bucket=$BUCKET_NAME" -backend-config="key=${{ env.TF_VAR_STATE_FILE }}" -backend-config="dynamodb_table=$DYNAMO_DB" -backend-config="encrypt=true"
