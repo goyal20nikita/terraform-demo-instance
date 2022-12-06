@@ -1,0 +1,15 @@
+name: "self-hoster-runner-example"
+on:
+  workflow_dispatch:
+    
+jobs:  
+ first-job:
+  runs-on: self-hosted
+  steps:
+   - name: "test self-hoster-runner using echo command"
+     run: echo "hi nikita you are on self-hosted-runner"
+ 
+    
+      
+
+   
